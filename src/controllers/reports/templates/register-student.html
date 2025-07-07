@@ -1,0 +1,94 @@
+<table style="border-bottom: 1px solid red;">
+  <tr style="border: none;">
+    <td style="text-align: center; vertical-align: middle;">
+      <img src="{{ image }}" alt="Fundetec" style="width: 100px; height: 100px;">
+    </td>
+    <td style="text-align: center; margin-left: 140px;">
+      <table>
+        <tr>
+          <td style="color: green; font-size: 25px;"><strong>{{ companyName }}</strong></td>
+        </tr>
+
+        <tr>
+          <td style="font-size: 25px;"><strong>{{ typeProgram }}</strong></td>
+        </tr>
+
+        <tr style="font-size: 20px;">
+          <td><strong>{{ description }}</strong></td>
+        </tr>
+
+        <tr style="font-size: 20px;">
+          <td><strong>{{ date }}</strong></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+
+<!-- Tabla 2: Información personal -->
+<table style="width: 100%; border-collapse: collapse; border: none; padding: 15px; margin-left: 25px; margin-top: 50px;">
+  <tr>
+    <td colspan="10" style="text-align: center; font-weight: bold; font-size: 16px; color: green; border: none; padding: 80px;">
+      {{ titleTable }}
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="5"><strong>NOMBRES:</strong><br>{{ names }}</td>
+    <td colspan="5"><strong>APELLIDOS:</strong><br>{{ sureNames }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><strong>TIPO DE DOCUMENTO: </strong><br>{{ typeDocument }}</td>
+    <td colspan="2"><strong>Nº DOCUMENTO: </strong><br>{{ documentNumber }}</td>
+    <td colspan="4"><strong>LUGAR DE EXPEDICIÒN: </strong><br>{{ expeditionPlace }}</td>
+    <td colspan="2"><strong>EDAD: </strong><br>{{ age }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="5"><strong>CORREO ELECTRONICO: </strong><br>{{ email }}</td>
+    <td colspan="5"><strong>FECHA DE NACIMIENTO: </strong><br>{{ bornDate }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="4"><strong>DIRECCION DE RESIDENCIA: </strong><br>{{ address }}</td>
+    <td colspan="3"><strong>BARRIO: </strong><br>{{ neighborhood }}</td>
+    <td colspan="3"><strong>CIUDAD: </strong><br>{{ city }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="5" style="width: 50%;"><strong>NÚMERO DE WHATSAPP:</strong><br>{{ phoneNumber }}</td>
+    <td colspan="5" style="width: 50%;"><strong>NUMERO DE CONTACTO 2:</strong><br>{{ secondPhoneNumber }}</td>
+  </tr>
+</table>
+
+<!-- Tabla 2: Información del programa -->
+<table style="width: 100%; border-collapse: collapse; border: none; padding: 15px; margin-left: 25px; margin-top: 25px;">
+  <tr>
+    <td colspan="10" style="text-align: center; font-weight: bold; font-size: 16px; color: green; border: none; padding: 80px;">
+      {{ titleTable2 }}
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><strong>PROGRAMA: </strong><br>{{ program }}</td>
+    <td colspan="2"><strong>MODALIDAD: </strong><br>{{ modality }}</td>
+    <td colspan="2"><strong>GRUPO: </strong><br>{{ group }}</td>
+    <td colspan="2"><strong>AÑO GRADUACIÓN: </strong><br>{{ dateGraduation }}</td>
+    <td colspan="2"><strong>ASESOR: </strong><br>{{ agent }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="10"><strong>Documentos Entregados: </strong>{{ documents }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="10"><strong>Observaciones: </strong><br>{{ observation }}</td>
+  </tr>
+</table>
+
+
+
+

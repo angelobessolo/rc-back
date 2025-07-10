@@ -20,7 +20,7 @@ import { RoleModule } from 'src/controllers/role/role.module';
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '6h' },
+      signOptions: { expiresIn: process.env.JWT_EXPIRATION },
     }), 
  
     // Circular dependencies injection

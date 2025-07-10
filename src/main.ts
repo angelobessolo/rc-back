@@ -17,7 +17,11 @@ async function bootstrap() {
     })
   );
 
-  app.enableCors();
+  // app.enableCors();
+  app.enableCors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  });
 
   const config = new DocumentBuilder()
     .setTitle('CASHUP RESTFULL API')

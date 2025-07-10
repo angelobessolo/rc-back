@@ -300,7 +300,7 @@ export class AdminController {
     }
   }
 
-  @UseGuards( AuthGuard )
+  // @UseGuards( AuthGuard )
   @Get('/type-modality/get-all-type-modalities')
   public async getAllTypeModality(@Req() req: Request, @Res() res: Response) {
     try {
@@ -360,7 +360,7 @@ export class AdminController {
   }
 
   // Cycles
-  @UseGuards( AuthGuard )
+  // @UseGuards( AuthGuard )
   @Get('/cycles/get-all-cycles')
   public async getAllCycles(@Req() req: Request, @Res() res: Response) {
     try {
@@ -382,7 +382,7 @@ export class AdminController {
 
 
   // Content
-  @UseGuards( AuthGuard )
+  // @UseGuards( AuthGuard )
   @Get('/contents/get-all-contents')
   public async getAllContents(@Req() req: Request, @Res() res: Response) {
     try {

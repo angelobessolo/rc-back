@@ -1,30 +1,29 @@
 import { IsNumber, IsOptional, IsString, MinLength } from "class-validator";
 
 export class CreateProgramDto {
+  @IsOptional()
+  @IsNumber()
+  id?: number;
 
-    @IsOptional()
-    @IsNumber()
-    id?: number;
+  @IsNumber()
+  cordinationsId: number;
+  
+  @IsNumber()
+  typeModalitiesId: number;
 
-    @IsNumber()
-    cordinationsId: number;
-    
-    @IsNumber()
-    typeModalitiesId: number;
+  @IsNumber()
+  typeProgramsId: number;
 
-    @IsNumber()
-    typeProgramsId: number;
+  @IsString()
+  programName: string;
 
-    @IsString()
-    programName: string;
+  @IsNumber()
+  amountMonth: number;
 
-    @IsNumber()
-    amountMonth: number;
+  @IsOptional()
+  @IsNumber()
+  amountSubjects?: number;
 
-    @IsOptional()
-    @IsNumber()
-    amountSubjects?: number;
-
-    @IsNumber()
-    price: number;
+  @IsNumber()
+  price: number;
 }

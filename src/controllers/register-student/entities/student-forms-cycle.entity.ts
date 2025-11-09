@@ -35,7 +35,6 @@ export class StudentFormsCycles {
   updateTime: string;
 
 
-  // Relaciones
   @ApiProperty({ type: () => StudentForms })
   @ManyToOne(() => StudentForms, (studentForms) => studentForms.studentFormsCycles, { nullable: false })
   @JoinColumn({ name: 'studentFormsId', referencedColumnName: 'id', foreignKeyConstraintName: 'fk_studentFormsCycles_studentForms' })

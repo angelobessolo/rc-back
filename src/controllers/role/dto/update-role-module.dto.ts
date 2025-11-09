@@ -3,9 +3,9 @@ import { ArrayNotEmpty, IsArray, IsBoolean, IsNotEmpty, IsNumber, IsOptional, Is
 import { ModuleDTO } from "./moduleDto";
 
 export class UpdateRoleModuleDto {
-    @IsArray()
-    @IsNotEmpty()
-    @ValidateNested({ each: true })
-    @Type(() => ModuleDTO)
-    modules: ModuleDTO[];
+  @IsArray()
+  @IsNotEmpty()
+  @ValidateNested({ each: true })
+  @Type(() => ModuleDTO)
+  modules: ModuleDTO[];
 }

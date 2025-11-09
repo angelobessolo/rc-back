@@ -1,4 +1,4 @@
-// Codigos de errores
+// User roles
 export const roles = {
     admin: 1,
     coordinador: 2,
@@ -6,13 +6,12 @@ export const roles = {
     docente: 4
 };  
 
-// Codigos de errores
+// Error codes
 export const codeErrors = {
     duplicatedKey: 1062, // register duplicated key
 };
 
-// TODO: Llevar parametros a base de datos
-// Parametros generals del sistema 
+// General system params
 export const params = {
     storage: 'factory',
 }

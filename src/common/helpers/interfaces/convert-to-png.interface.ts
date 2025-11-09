@@ -1,5 +1,5 @@
 export interface ConvertToPng{ 
-    buffer: Buffer; 
-    fileName: string 
+  buffer: Buffer
+  fileName: string 
 }
 

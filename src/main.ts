@@ -29,8 +29,8 @@ async function bootstrap() {
   
   app.use('/public', express.static(join(process.cwd(), 'public')));
 
-  // Aumentar el tamaño máximo de la carga útil
-  app.use(bodyParser.json({ limit: '50mb' }));  // Aquí puedes ajustar el límite (por ejemplo, 50mb)
+  // Increase the util load
+  app.use(bodyParser.json({ limit: '50mb' }));
   app.useGlobalFilters(new AllExceptionsFilter());
   const port = process.env.PORT || 3000;
   await app.listen(port);

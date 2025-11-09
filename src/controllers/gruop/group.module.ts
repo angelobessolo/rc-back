@@ -14,10 +14,6 @@ import { Group } from './entities/group.entity';
       Group,
     ]),
     forwardRef(() => AuthModule), 
-    // forwardRef(() => AdminModule), 
-    // forwardRef(() => RoleModule), 
-    // forwardRef(() => ModuleModule), 
-    // forwardRef(() => TypeDocumentsModule), 
     forwardRef(() => ProgramModule), 
   ],
   exports: [

@@ -27,7 +27,6 @@ export class GroupService {
   // Methods about group
   public async createGroup(createGruopDto: CreateGruopDto): Promise<Group> {
     try {
-      // se consulta si el nombre del grupo ya se encuentra registrado
       const group = await this.groupModel.findOne({
         where: {groupName: createGruopDto.groupName},
         relations: ['program']
@@ -37,7 +36,6 @@ export class GroupService {
         throw new Error(`El grupo ${createGruopDto.groupName} ya se encuentra registrado en el sistema`);
       }
 
-      // Se busca el programa academico
       const program = await this.programModel.findOne({
         where: {id: createGruopDto.programsId},
         relations: ['cordination', 'studentPrograms', 'typeModality', 'typeProgram']
@@ -51,7 +49,6 @@ export class GroupService {
         ...createGruopDto
       });
 
-      // Almacenar el grupo
       const savedGroup = await this.groupModel.save(groupModel);
 
       if (!savedGroup) {
@@ -102,14 +99,6 @@ export class GroupService {
 
     const values = await this.groupModel.find({
       relations: ['program', 'program.cordination', 'program.typeProgram', 'program.typeModality'],
-      // order: {
-      //   typeProgram: {
-      //     id: 'ASC',
-      //   },
-      //   typeModality: {
-      //     id: 'ASC', 
-      //   }
-      // },
     });  
 
     const processedValues = values.map((group, index) => {
@@ -138,94 +127,4 @@ export class GroupService {
       values: processedValues 
     };
   }
-
-  // Agrega materias a un grupo
-  // public async addSubjects(user: User, addSubjectDto: AddSubjectDto): Promise<any> {
-  //   // Inicia transacción
-  //   const queryRunner = this.dataSource.createQueryRunner();
-  //   await queryRunner.connect();
-
-  //   try {
-  //     // Obtener la coordinación
-  //     const subject = await this.cordinationModel.findOne({
-  //       where: { id: addSubjectDto.cordinationsId },
-  //     });
-
-  //     if (!subject) {
-  //       throw new NotFoundException(`No se encontró la asignatura registrada en el sistema`);
-  //     }
-
-  //     const group = await this.groupModel.findOne({
-  //       where: {
-  //         id: addSubjectDto.groupsId,
-  //       },
-  //     });
-
-  //     if (!group) {
-  //       throw new NotFoundException(`No se encontró la grupo registrado en el sistema`);
-  //     }
-
-  //     // Iniciar transacción
-  //     await queryRunner.startTransaction();
-
-  //     for(const  subjectId of addSubjectDto.subjectsId){
-
-  //       // Retornar actividad con relación a asignatura
-  //       const subject = await this.subjectModel.findOne({
-  //         where: { id: subjectId },
-  //       });
-
-  //       if (!subject) {
-  //         throw new NotFoundException(`No se encontró la asignatura registrada en el sistema`);
-  //       }
-
-  //       // Retornar actividad con relación a asignatura
-  //       const subjectGroup = await this.subjectsGroupModel.findOne({
-  //         where: { 
-  //           subject: subject,
-  //           group: group 
-  //         },
-  //       });
-
-  //       if (subjectGroup) {
-  //         throw new NotFoundException(`Ya se encuentra registrada en el sistema la asignatura ${subject.subjectName} registrada para el grupo ${group.groupName}`);
-  //       }
-
-  //       // Crear el Subject
-  //       const newSubjectsGroup = queryRunner.manager.create(SubjectsGroup, {
-  //         subject: subject,
-  //         group: group,
-  //         isActive: true,
-  //       });
-
-  //       const savedAssignment = await queryRunner.manager.save(newSubjectsGroup);
-  //     };
-
-      
-  //     // Commit manual
-  //     await queryRunner.commitTransaction();
-
-  //     // Retornar actividad con relación a asignatura
-  //     const subjectsGroup = await this.subjectsGroupModel.find({
-  //       where: {
-  //         group: {
-  //           id: addSubjectDto.groupsId
-  //         }
-  //       },
-  //       relations: ['subject', 'group'],
-  //     });
-
-  //     return subjectsGroup;
-
-  //   } catch (error) {
-  //     if (queryRunner.isTransactionActive) {
-  //       await queryRunner.rollbackTransaction();
-  //     }
-  //     throw new InternalServerErrorException(`Error al crear la materia: ${error.message}`);
-
-  //   } finally {
-  //     await queryRunner.release();
-  //   }
-  // }
-  
 }

@@ -1,6 +1,4 @@
 import { BadRequestException, Inject, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
-import { CreateAdminDto } from './dto/create-admin.dto';
-import { UpdateAdminDto } from './dto/update-admin.dto';
 import { CreateDocumentDto } from './dto/create-document.dto';
 import { User } from 'src/controllers/auth/entities/user.entity';
 import { codeErrors } from 'src/params';
@@ -62,7 +60,6 @@ export class AdminService {
     try {
       const newDocument = this.documentModel.create({...createDocumentDto})
       
-      // 1. Save document 
       const newDocumentSaved = await this.documentModel.save(newDocument);
       
       return newDocumentSaved;
@@ -87,7 +84,6 @@ export class AdminService {
       return document
   
     } catch (err) {  
-      // Si el error es una instancia de NotFoundException, la relanzamos sin cambiarla
       if (err instanceof NotFoundException) {
         throw err;
       }
@@ -99,12 +95,10 @@ export class AdminService {
   // ********** Metodos Roles **********
   public async getRolById(id: number): Promise<Role>{
     try {
-      // 1. Buscar el rol en la base de datos
       const role = await this.roleModel.findOne({
         where: { id: id },
       });
 
-      // 2. Validar si el rol existe
       if (!role){
         throw new NotFoundException('¡No se encontró coincidencia con el registro en la base de datos!');
       }
@@ -112,7 +106,7 @@ export class AdminService {
 
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw error; // Si es NotFoundException, vuelve a lanzarla
+        throw error;
       }
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${error.message}`);
     }
@@ -130,7 +124,7 @@ export class AdminService {
 
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw error; // Si es NotFoundException, vuelve a lanzarla
+        throw error;
       }
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${error.message}`);
     }
@@ -148,7 +142,7 @@ export class AdminService {
 
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw error; // Si es NotFoundException, vuelve a lanzarla
+        throw error;
       }
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${error.message}`);
     }
@@ -166,7 +160,7 @@ export class AdminService {
 
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw error; // Si es NotFoundException, vuelve a lanzarla
+        throw error;
       }
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${error.message}`);
     }
@@ -192,9 +186,8 @@ export class AdminService {
     const values = await this.roleModel.find();  
 
     const processedValues = values.map((role, index) => {
-     
+      // User detail
       return {
-        // Detalle User
         index: index + 1,
         id: role.id,
         roleName: role.roleName,
@@ -223,7 +216,6 @@ export class AdminService {
         ...createTypeProgramDto
       })
       
-      // 1. Save document 
       const savedTypeProgram = await this.typeProgramModel.save(newTypeProgram);
       
       return savedTypeProgram;
@@ -304,20 +296,17 @@ export class AdminService {
 
   public async UpdateProgramType(id: number, updateProgramTypeDto: UpdateProgramTypeDto): Promise<any> {
     try {
-      // Buscar el usuario en el sistema, incluyendo las relaciones necesarias
       const programType = await this.typeProgramModel.findOne({ 
         where: { id: id },
         relations: ['cordination']
       });
   
-      // Verificar si el usuario existe
       if (!programType) {
         throw new InternalServerErrorException('¡No se encontró tipo de programa registrado en el sistema!');
       }
 
       programType.type = updateProgramTypeDto.type;
 
-      // Guardar el detalle del usuario actualizado
       const programTypeUpdated = await this.typeProgramModel.update(id, {
         ...programType
       }); 
@@ -326,17 +315,14 @@ export class AdminService {
         throw new InternalServerErrorException('¡No se logro actualizar el registro!');
       }
 
-      // Buscar el usuario en el sistema, incluyendo las relaciones necesarias
       const programTypeModel = await this.typeProgramModel.findOne({ 
         where: { id: id },
         relations: ['cordination']
       });
 
-      // Retornar el detalle del usuario actualizado
       return programTypeModel;
    
     } catch (err) {
-      // Manejo de errores
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${err.message || err}`);
     }
   }
@@ -349,7 +335,6 @@ export class AdminService {
         ...createTypeModalityDto
       })
       
-      // 1. Save document 
       const savedTypeModality = await this.typeModalityModel.save(newTypeModality);
       
       return savedTypeModality;
@@ -427,20 +412,17 @@ export class AdminService {
 
   public async UpdateNodalityType(id: number, updateModalityTypeDto: UpdateModalityTypeDto): Promise<any> {
     try {
-      // Buscar el usuario en el sistema, incluyendo las relaciones necesarias
       const modalityType = await this.typeModalityModel.findOne({ 
         where: { id: id },
         relations: ['cordination']
       });
   
-      // Verificar si el usuario existe
       if (!modalityType) {
         throw new InternalServerErrorException('¡No se encontró tipo de modalidad registrado en el sistema!');
       }
 
       modalityType.modalityName = updateModalityTypeDto.modalityName;
 
-      // Guardar el detalle del usuario actualizado
       const programTypeUpdated = await this.typeModalityModel.update(id, {
         ...modalityType
       }); 
@@ -449,22 +431,16 @@ export class AdminService {
         throw new InternalServerErrorException('¡No se logro actualizar el registro!');
       }
 
-      // Buscar el usuario en el sistema, incluyendo las relaciones necesarias
       const modalityTypeModel = await this.typeModalityModel.findOne({ 
         where: { id: id },
         relations: ['cordination']
       });
-
-      // Retornar el detalle del usuario actualizado
       return modalityTypeModel;
    
     } catch (err) {
-      // Manejo de errores
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${err.message || err}`);
     }
   }
-
-
   
   // ********** Metodos Tipos de getAllCycles **********
   public async getAllCycles(user: User): Promise<Cycle[]> {
@@ -496,5 +472,4 @@ export class AdminService {
 
     return contents
   }
-
 }

@@ -6,7 +6,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from 'src/controllers/auth/auth.module';
 import { AdminModule } from '../admin/admin.module';
 import { RoleModule } from '../role/role.module';
-import { RegisterStudentModule } from 'src/controllers/register-student/register-student.module';
 import { ProgramModule } from '../program/program.module';
 
 @Module({

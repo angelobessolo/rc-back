@@ -1,6 +1,4 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
-import { CreateTypeDocumentDto } from './dto/create-type-document.dto';
-import { UpdateTypeDocumentDto } from './dto/update-type-document.dto';
 import { codeErrors } from 'src/params';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TypeDocuments } from './entities/documents.entity';
@@ -13,9 +11,6 @@ export class TypeDocumentsService {
   constructor(
     @InjectRepository(TypeDocuments)
     private documentsModel: Repository<TypeDocuments>,
-
-    // @InjectRepository(RoleModule)
-    // private roleModuleModel: Repository<RoleModule>,
   ) {}
 
   public async getAll(user: User): Promise<TypeDocuments[]>{
@@ -29,7 +24,7 @@ export class TypeDocumentsService {
 
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw error; // Si es NotFoundException, vuelve a lanzarla
+        throw error;
       }
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${error.message}`);
     }

@@ -13,7 +13,7 @@ import { UpdateModalityTypeDto } from './dto/update-modality-type.dto';
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
-  // ********** Metodos Documentos **********
+  // ********** Document Methods **********
   @UseGuards( AuthGuard )
   @Post('/document')
   public async createDocument(@Request() req: Request, @Res() res: Response, @Body() createDocumentDto: CreateDocumentDto) {
@@ -58,52 +58,7 @@ export class AdminController {
     } 
   }
 
-  // ********** Metodos Paises **********
-  // @UseGuards( AuthGuard )
-  // @Post('/document')
-  // async createDocument(@Request() req: Request, @Res() res: Response, @Body() createDocumentDto: CreateDocumentDto) {
-  //   try {
-  //     const user = req['user'];
-  //     const document = await this.adminService.createDocument(createDocumentDto, user);
-  //     return res.status(HttpStatus.OK).json({
-  //       statusCode: HttpStatus.OK,
-  //       message: 'Tipo Documento creado con éxito',
-  //       data: {
-  //         document: document,
-  //       }
-  //     });
-  //   } catch (error) {
-  //     return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-  //       statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
-  //       message: 'Error al momento de la creacion de coordinación',
-  //       error: error.message,
-  //     });
-  //   }
-  // }
-
-  // @UseGuards( AuthGuard )
-  // @Get('/document/:id')
-  // async getDocument(@Request() req: Request, @Res() res: Response, @Param('id') id: number) {
-  //   try {
-  //     const user = req['user'];
-  //     const document = await this.adminService.getDocument(id);
-  //     return res.status(HttpStatus.OK).json({
-  //       statusCode: HttpStatus.OK,
-  //       message: 'Petición realizada con éxito',
-  //       data: {
-  //         document: document,
-  //       }
-  //     });
-  //   } catch (error) {
-  //     return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-  //       statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
-  //       message: 'Error al momento de retornar la busqueda',
-  //       error: error.message,
-  //     });
-  //   } 
-  // }
-
-  // ********** Metodos Paises **********
+  // ********** Contries Methods **********
   @UseGuards( AuthGuard )
   @Get('country/get-all-countries')
   public async getAll(@Request() req: Request, @Res() res: Response) {
@@ -126,7 +81,7 @@ export class AdminController {
     } 
   }
 
-  // ********** Metodos Departamentos **********
+  // ********** States Methods **********
   @UseGuards( AuthGuard )
   @Get('state/get-all-states')
   public async getAllStates(@Request() req: Request, @Res() res: Response) {
@@ -149,7 +104,7 @@ export class AdminController {
     } 
   }
 
-  // ********** Metodos Ciudades **********
+  // ********** Cities Methods **********
   @UseGuards( AuthGuard )
   @Get('city/get-all-cities')
   public async getAllCities(@Request() req: Request, @Res() res: Response) {
@@ -172,7 +127,7 @@ export class AdminController {
     } 
   }
 
-  // ********** Metodos Roles **********
+  // ********** Roles Methods **********
   @UseGuards( AuthGuard )
   @Get('/roles/get-all-roles')
   public async getAllUsers(@Res() res: Response) {
@@ -192,7 +147,7 @@ export class AdminController {
     }
   }
 
-  // ********** Metodos Tipos Programa **********
+  // ********** Type programs Methods **********
   @UseGuards( AuthGuard )
   @Post('/type-program')
   public async createTypeProgram(@Request() req: Request, @Res() res: Response, @Body() createTypeProgramDto: CreateTypeProgramDto) {
@@ -215,7 +170,6 @@ export class AdminController {
     }
   }
 
-  // @UseGuards( AuthGuard )
   @Get('/type-program/get-all-type-programs')
   public async getAllTypePrograms(@Req() req: Request,  @Res() res: Response) {
     try {
@@ -276,8 +230,7 @@ export class AdminController {
     }
   }
 
-
-  // ********** Metodos Tipos Programa **********
+  // ********** Type mopdalities Methods **********
   @UseGuards( AuthGuard )
   @Post('/type-modality')
   public async createTypeModality(@Request() req: Request, @Res() res: Response, @Body() createTypeModalityDto: CreateTypeModalityDto) {
@@ -300,7 +253,6 @@ export class AdminController {
     }
   }
 
-  // @UseGuards( AuthGuard )
   @Get('/type-modality/get-all-type-modalities')
   public async getAllTypeModality(@Req() req: Request, @Res() res: Response) {
     try {
@@ -359,8 +311,7 @@ export class AdminController {
     }
   }
 
-  // Cycles
-  // @UseGuards( AuthGuard )
+  // ********** Cycles Methods **********
   @Get('/cycles/get-all-cycles')
   public async getAllCycles(@Req() req: Request, @Res() res: Response) {
     try {
@@ -381,8 +332,7 @@ export class AdminController {
   }
 
 
-  // Content
-  // @UseGuards( AuthGuard )
+  // ********** Content Methods **********
   @Get('/contents/get-all-contents')
   public async getAllContents(@Req() req: Request, @Res() res: Response) {
     try {

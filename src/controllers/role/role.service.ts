@@ -1,15 +1,11 @@
 import { BadRequestException, forwardRef, Inject, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { CreateRoleDto } from './dto/create-role.dto';
-import { UpdateRoleDto } from './dto/update-role.dto';
 import { Role } from './entities/role.entity';
-import { AuthService } from 'src/controllers/auth/auth.service';
 import { codeErrors } from 'src/params';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/controllers/auth/entities/user.entity';
 import { AdminService } from '../admin/admin.service';
-import { CreateRoleModuleDto } from './dto/create-role-module.dto';
-import { UpdateRoleModuleDto } from './dto/update-role-module.dto';
 
 
 @Injectable()
@@ -51,7 +47,7 @@ export class RoleService {
 
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw error; // Si es NotFoundException, vuelve a lanzarla
+        throw error;
       }
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${error.message}`);
     }
@@ -70,7 +66,7 @@ export class RoleService {
 
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw error; // Si es NotFoundException, vuelve a lanzarla
+        throw error; 
       }
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${error.message}`);
     }
@@ -87,7 +83,7 @@ export class RoleService {
 
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw error; // Si es NotFoundException, vuelve a lanzarla
+        throw error;
       }
       throw new InternalServerErrorException(`¡Ha ocurrido un error en el servidor! ${error.message}`);
     }

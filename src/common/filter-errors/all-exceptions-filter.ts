@@ -20,15 +20,12 @@ export class AllExceptionsFilter implements ExceptionFilter {
     } else if (typeof exceptionResponse === 'object') {
       const responseObject = exceptionResponse as any;
 
-      // Si viene de class-validator (errores DTO)
+      // If come from class-validator (DTO errors)
       if (Array.isArray(responseObject.message)) {
         error = responseObject.message.join(', ');
       } else {
         error = responseObject.message || 'Error';
       }
-
-      // Puedes usar un mensaje por defecto para cada tipo de error
-      // message = responseObject.error || 'Error en la operación';
     }
   } else if (exception instanceof Error) {
     error = exception.message;
@@ -36,8 +33,8 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
   response.status(status).json({
     statusCode: status,
-    message, // Título del error
-    error,   // Detalle del error
+    message, // Title error
+    error,   // Detail error
   });
   }
 }

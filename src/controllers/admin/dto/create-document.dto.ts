@@ -1,10 +1,10 @@
 import { IsOptional, IsString } from "class-validator";
 
 export class CreateDocumentDto {
-    @IsString()
-    documentName: string
+  @IsString()
+  documentName: string
 
-    @IsOptional()
-    @IsString()
-    isActive: boolean
+  @IsOptional()
+  @IsString()
+  isActive: boolean
 }

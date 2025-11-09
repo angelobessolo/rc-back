@@ -5,7 +5,6 @@ import { Group } from "src/controllers/gruop/entities/group.entity";
 import { StudentForms } from "src/controllers/register-student/entities/student-forms.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
-
 @Entity('programs')
 export class Program {
   @ApiProperty()
@@ -47,20 +46,17 @@ export class Program {
 
   @ApiProperty()
   @Column({ type: 'date', default: () => "CURRENT_DATE", comment: 'Fecha de Creación' })  
-  createAt: string;  // Solo almacenará la fecha (YYYY-MM-DD)
+  createAt: string;
 
-  // Campo de solo hora (tipo 'time')
   @ApiProperty()
   @Column({ type: 'time', default: () => "CURRENT_TIME", comment: 'Hora de Creación' })  
-  createTime: string;  // Solo almacenará la hora (HH:MM:SS)
+  createTime: string;
 
-  // Campo de solo fecha (tipo 'date')
   @ApiProperty()
   @Column({ type: 'date', default: () => "CURRENT_DATE", comment: 'Fecha de Actualización' })  
-  updateAt: string;  // Solo almacenará la fecha (YYYY-MM-DD)
+  updateAt: string;
   
-  // Campo de solo hora (tipo 'time')
   @ApiProperty()
   @Column({ type: 'time', default: () => "CURRENT_TIME", comment: 'Hora de Actualización' })  
-  updateTime: string;  // Solo almacenará la hora (HH:MM:SS)
+  updateTime: string;
 }

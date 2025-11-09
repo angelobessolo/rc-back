@@ -10,7 +10,6 @@ export class ProgramController {
   constructor(private readonly programService: ProgramService) {}
 
   // ********** Metodos Tipos Programa **********
-  
   @UseGuards( AuthGuard )
   @Post('')
   async createTypeModality(@Request() req: Request, @Res() res: Response, @Body() CreateProgramDto: CreateProgramDto) {

@@ -1,8 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Res, Request, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Res, Request, HttpStatus } from '@nestjs/common';
 import { TypeDocumentsService } from './type-documents.service';
-import { CreateTypeDocumentDto } from './dto/create-type-document.dto';
-import { UpdateTypeDocumentDto } from './dto/update-type-document.dto';
-import { AuthGuard } from 'src/controllers/auth/guards/Auth.guard';
 import { Response } from 'express';
 
 @Controller('type-documents')

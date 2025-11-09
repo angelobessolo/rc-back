@@ -2,7 +2,7 @@ import { ArrayNotEmpty, IsArray, IsBoolean, IsNumber, IsOptional, IsString } fro
 
 export class AddSubjectDto {
 	@IsNumber({}, {message: 'cordinationsId - Identificador de la coordinación debe ser númerico'})
-  	cordinationsId: number;
+  cordinationsId: number;
 
 	@IsNumber({}, {message: 'groupsId - Identificador del grupo debe ser númerico'})
 	groupsId: number;

@@ -102,7 +102,6 @@ export class StudentForms {
   updateTime: string;
 
 
-  // Relaciones entre tablas
   @ApiProperty({ type: () => TypeDocuments })
   @ManyToOne(() => TypeDocuments, (typeDocument) => typeDocument.studentForm, { nullable: false })
   @JoinColumn({name: 'typeDocumentsId', referencedColumnName: 'id',foreignKeyConstraintName: 'fk_studentForms_programs'})

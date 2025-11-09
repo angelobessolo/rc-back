@@ -12,7 +12,6 @@ import { Role } from '../role/entities/role.entity';
 import { Country } from '../admin/entities/countries.entity';
 import { State } from '../admin/entities/states.entity';
 import { City } from '../admin/entities/cities.entity';
-import { UpdateStatusDto } from '../admin/dto/update-status.dto';
 
 @Injectable()
 export class UserService {

@@ -2,9 +2,6 @@ import { Controller, Get, Post, Body, UseGuards, Res, HttpStatus } from '@nestjs
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
-// import { AuthGuard } from './guards/Auth.guard';
-// import { LoginResponse } from './interfaces/login-response';
-// import { User } from './entities/user.entity';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { User } from './entities/user.entity';
 import { AuthGuard } from './guards/Auth.guard';
@@ -12,7 +9,6 @@ import { JwtPayload } from './interfaces/jwt-payload';
 import { JwtService } from '@nestjs/jwt';
 import { LoginResponse } from './interfaces/login-response';
 import { Response } from 'express';
-
 
 @ApiTags('Auth')
 @Controller('auth')

@@ -1,4 +1,4 @@
 export interface SaveFile{
-    filePath: string;
-    status: boolean
+  filePath: string
+  status: boolean
 }

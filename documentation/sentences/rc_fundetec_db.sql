@@ -442,12 +442,12 @@ CREATE TABLE `userDetails` (
 
 ALTER TABLE `userDetails`
   ADD CONSTRAINT `fk_userDetails_usersId` FOREIGN KEY (`usersId`) REFERENCES `users`(`id`),
-  ADD CONSTRAINT `fk_userDetails_typeDocumentsId` FOREIGN KEY (`typeDocumentsId`) REFERENCES `typeDocuments`(`id`),
+  ADD CONSTRAINT `fk_userDetails_typeDocumentsId` FOREIGN KEY (`typeDocumentsId`) REFERENCES `typedocuments`(`id`),
   ADD CONSTRAINT `fk_userDetails_countriesId` FOREIGN KEY (`countriesId`) REFERENCES `countries`(`id`),
   ADD CONSTRAINT `fk_userDetails_statesId` FOREIGN KEY (`statesId`) REFERENCES `states`(`id`),
   ADD CONSTRAINT `fk_userDetails_citiesId` FOREIGN KEY (`citiesId`) REFERENCES `cities`(`id`);
 
-INSERT INTO `userdetails` (`id`, `usersId`, `typeDocumentsId`, `documentNumber`, `firstName`, `secondName`, `lastName`, `sureName`, `phoneNumber`, `email`, `countriesId`, `statesId`, `citiesId`, `closePersonNames`, `closePersonPhone`) VALUES
+INSERT INTO `userDetails` (`id`, `usersId`, `typeDocumentsId`, `documentNumber`, `firstName`, `secondName`, `lastName`, `sureName`, `phoneNumber`, `email`, `countriesId`, `statesId`, `citiesId`, `closePersonNames`, `closePersonPhone`) VALUES
   (1, 1, 1, 999999999, 'Fundetec', '', 'Admin', '', 9999999999, 'fundetecadmin@gmail.com', 1, 1, 1, '', '' );
 
 --

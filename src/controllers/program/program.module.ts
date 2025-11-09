@@ -15,7 +15,6 @@ import { AdminModule } from '../admin/admin.module';
     ]),
     forwardRef(() => AuthModule), 
     forwardRef(() => AdminModule), 
-    // forwardRef(() => StudentModule),
   ],
   exports: [
     ProgramService,

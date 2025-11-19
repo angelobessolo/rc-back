@@ -1,4 +1,4 @@
-import { BadRequestException, Inject, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { CreateDocumentDto } from './dto/create-document.dto';
 import { User } from 'src/controllers/auth/entities/user.entity';
 import { codeErrors } from 'src/params';
@@ -16,8 +16,6 @@ import { CreateTypeModalityDto } from './dto/create-type-modality.dto';
 import { TypeModality } from './entities/type-modalities.entity';
 import { UpdateProgramTypeDto } from './dto/update-program-type.dto';
 import { UpdateModalityTypeDto } from './dto/update-modality-type.dto';
-import { Program } from '../program/entities/program.entity';
-import { AuthService } from 'src/controllers/auth/auth.service';
 import { Cycle } from './entities/cycles.entity';
 import { Content } from './entities/contents.entity';
 

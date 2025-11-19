@@ -14,7 +14,6 @@ import { TypeModality } from './entities/type-modalities.entity';
 import { Cycle } from './entities/cycles.entity';
 import { Content } from './entities/contents.entity';
 
-
 @Module({
   controllers: [AdminController],
   providers: [AdminService],
